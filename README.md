@@ -25,7 +25,7 @@ THEN I can save my initials and score
 
 ## Mock-Up
 
-https://courses.bootcampspot.com/courses/895/files/889064/preview![Uploading image.png…]()
+![image](https://user-images.githubusercontent.com/17223625/139781854-1d542e3f-a18e-4eed-a72b-75d907ecaaa9.png)
 
 
 ## Grading Requirements
