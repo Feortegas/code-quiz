@@ -18,6 +18,10 @@
     text-decoration: none;
 }
 
+.header .timer {
+    display: flex;
+}
+
 .main {
     text-align: center;
     padding: 40px 125px;
