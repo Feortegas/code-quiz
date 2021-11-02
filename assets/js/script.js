@@ -1,5 +1,35 @@
 // Initialize Timer with a value
-theTimer = 10;
+var theQuizGame = {
+    theTimer: 10,
+    theScore: 0
+};
+
+var questions = [
+    {
+        question: "How much is 1 + 0?",
+        options: [1,2,3,4],
+        rightAnswer: 2
+    },
+
+    {
+        question: "How much is 1 + 1?",
+        options: [1,2,3,4],
+        rightAnswer: 2
+    },
+
+    {
+        question: "How much is 1 + 2?",
+        options: [1,2,3,4],
+        rightAnswer: 2
+    },
+
+    {
+        question: "How much is 1 + 3?",
+        options: [1,2,3,4],
+        rightAnswer: 2
+    }
+];
+
 
 // Select Start Quiz button element
 var startQuizEl = document.querySelector(".start-quiz");
@@ -16,16 +46,27 @@ startQuizEl.addEventListener("click", function() {
 var countdown = function() {
 
     var timeInterval = setInterval(function () {
-        if (theTimer > 0) {
-            timerEl.textContent = theTimer;
-            theTimer--;
+        if (theQuizGame.theTimer > 0) {
+            timerEl.textContent = theQuizGame.theTimer;
+            theQuizGame.theTimer--;
+            // generate questions
+            quizGame();
         }
         else {
             timerEl.textContent = 0;
             clearInterval(timeInterval);
-            window.alert("Game Over!");
+            console.log("Game Over");
             return;
         }
     }, 1000);
 
+    
+};
+
+// Quiz Game function
+var quizGame = function() {
+  for (let i = 0; i < questions.length; i++) {
+      // create answer options buttons
+      var optionAnswer = document.createElement("button");
+  }
 };
