@@ -6,6 +6,10 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.hide-content {
+    display: none;
+}
+
 /* header section */
 .header {
     display: flex;
@@ -22,22 +26,22 @@
     display: flex;
 }
 
-.main {
+#main-page {
     text-align: center;
     padding: 40px 125px;
 }
 
-.main h1 {
+#main-page h1 {
     font-size: 36px;
     font-weight: bold;
     padding: 10px;
 }
 
-.main p {
+#main-page p {
     padding: 10px 0 20px 0;
 }
 
-.main .start-quiz {
+.btn-default {
     width: 25%;
     border: none;
     background: rgb(45, 15, 155);
@@ -46,4 +50,20 @@
     font-size: 16px;
     border-radius: 10px;
     cursor: pointer;
+}
+
+#questions {
+    text-align: center;
+    padding: 40px 125px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#questions h3 {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px;
 }
