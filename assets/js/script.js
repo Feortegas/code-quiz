@@ -2,7 +2,8 @@
 // Initialize Score as 0
 var theQuizGame = {
     theTimer: 10,
-    theScore: 0
+    theScore: 0,
+    theQuestionId: 0
 };
 
 // quiz questions array
@@ -51,12 +52,15 @@ startQuizEl.addEventListener("click", function() {
     generateAnswerEls();
 });
 
+// hide main section content when game starts
+// un-hide questions section content
 var hideMainContent = function() {
+    // hide main section content
     var mainContentEl = document.getElementById("main-page");
     console.log(mainContentEl);
     mainContentEl.setAttribute("class", "hide-content");
 
-    // make questions section visible
+    // un-hide questions section content
     questionsEL.removeAttribute("class")
 }
 
@@ -79,22 +83,55 @@ var countdown = function() {
 
 // Generate Question Elements function
 var generateQuestionEls = function() {
-    // creante question h3 element
-    var h3El = document.createElement("h3");
-    h3El.textContent = questions[0].question;
-    questionsEL.appendChild(h3El);
-    // for (let i = 0; i < questions.length; i++) {
-    // }
+
+    if (theQuizGame.theQuestionId <= questions.length && theQuizGame.theQuestionId == 0) {
+        // creante question h3 element
+        var h3El = document.createElement("h3");
+        h3El.textContent = questions[theQuizGame.theQuestionId].question;
+        questionsEL.appendChild(h3El);
+    }
+    else if (theQuizGame.theQuestionId <= questions.length) {
+        var h3El = document.createElement("h3");
+        h3El.textContent = questions[theQuizGame.theQuestionId].question;
+        console.log(h3El.textContent);
+    }
+    else {
+        // Game is over - show final score section - hide questions section
+        console.log("Game is over - all questions answered");
+        return;
+    }
+
 };
 
 // Generate Answer Buttons function
 var generateAnswerEls = function() {
-    for (let i = 0; i < questions[0].options.length; i++) {
+    for (let i = 0; i < questions[theQuizGame.theQuestionId].options.length; i++) {
         // create answer options buttons
         var answerBtnEl = document.createElement("button");
         answerBtnEl.className = "btn-default";
-        answerBtnEl.textContent = questions[0].options[i];
+        answerBtnEl.textContent = questions[theQuizGame.theQuestionId].options[i];
         questionsEL.appendChild(answerBtnEl);
+
+        // event listener - click
+        answerBtnEl.addEventListener("click", function() {
+            // check answer
+            checkAnswer(this.textContent, questions[theQuizGame.theQuestionId]);
+        });
+    }
+};
+
+// check if answer is correct - assign score (+ or -)
+var checkAnswer = function(answer, questionId) {
+    if (answer == questionId.rightAnswer) {
+        console.log("answer is correct");
+        theQuizGame.theScore++;
+        theQuizGame.theQuestionId++;
+        generateQuestionEls();
+    }
+    else {
+        console.log("answer is incorrect " + answer + questionId.rightAnswer);
+        theQuizGame.theScore--;
+        console.log(theQuizGame.theScore);
     }
 };
 
