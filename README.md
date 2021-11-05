@@ -25,7 +25,7 @@ THEN I can save my initials and score
 
 ## Mock-Up
 
-![image](https://user-images.githubusercontent.com/17223625/139781854-1d542e3f-a18e-4eed-a72b-75d907ecaaa9.png)
+![04-web-apis-homework-demo](https://user-images.githubusercontent.com/17223625/140455782-3de13f5e-0d6a-4a43-a6cd-77a5b8c5091a.gif)
 
 
 ## Grading Requirements

@@ -1,8 +1,7 @@
 // Initialize Timer with a value
 // Initialize Score as 0
 var theQuizGame = {
-    theTimer: 100,
-    theScore: 0,
+    theTimer: 40,
     theQuestionId: 0,
     theInitials: ""
 };
@@ -38,6 +37,8 @@ var questions = [
 var questionsEL = document.getElementById("questions");
 // Select answers section element
 var answersEl = document.getElementById("answers");
+// Select user message section content element
+var userMessageEl = document.getElementById("user-message");
 // Select End Game section element
 var endGameEl = document.getElementById("end-game");
 // Select Start Quiz button element
@@ -65,7 +66,7 @@ var hideMainContent = function() {
     mainContentEl.setAttribute("class", "hide-content");
 
     // un-hide questions section content
-    questionsEL.removeAttribute("class")
+    questionsEL.removeAttribute("class");
 }
 
 // hide questions section content
@@ -93,7 +94,6 @@ var countdown = function() {
         else {
             // timerEl.textContent = 0;
             clearInterval(timeInterval);
-            console.log("Game Over");
             return;
         }
     }, 1000);
@@ -112,7 +112,6 @@ var generateQuestionEls = function() {
     else {
         // Game is over - show final score section - hide questions section
         endGame = true;
-        console.log("Game is over - all questions answered" + endGame);
         hideQuestionsContent();
     }
 
@@ -140,17 +139,28 @@ var generateAnswerEls = function() {
 
 // check if answer is correct - assign score (+ or -)
 var checkAnswer = function() {
+
+    // un-hide user message section content
+    userMessageEl.removeAttribute("class");
+    userMessageEl.textContent = "";
+
     if (this.textContent == questions[theQuizGame.theQuestionId].rightAnswer) {
-        console.log("answer is correct");
-        theQuizGame.theScore++;
         theQuizGame.theQuestionId++;
-        generateQuestionEls();
+        userMessageEl.textContent = "Answer is Correct!"
+        userMessageEl.setAttribute("style", " color: lightgreen;");
+        setTimeout(function() {
+            userMessageEl.textContent = "";
+            generateQuestionEls();
+        }, 1000);
     }
     else {
-        console.log("answer is incorrect");
-        theQuizGame.theScore--;
         theQuizGame.theQuestionId++;
-        console.log(theQuizGame.theScore);
-        generateQuestionEls();
+        theQuizGame.theTimer -= 10;
+        userMessageEl.textContent = "Answer is Incorrect!"
+        userMessageEl.setAttribute("style", " color: red;");
+        setTimeout(function() {
+            userMessageEl.textContent = "";
+            generateQuestionEls();
+        }, 1000);
     }
 };

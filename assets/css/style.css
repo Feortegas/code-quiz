@@ -71,3 +71,19 @@
     font-weight: bold;
     padding: 40px 125px 0 125px;
 }
+
+#end-game h2 {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+#end-game p {
+    font-size: 20px;
+}
+
+#user-message {
+    font-size: 28px;
+    font-style: italic;
+    padding-left: 125px;
+}
