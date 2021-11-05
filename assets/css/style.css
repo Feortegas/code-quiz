@@ -52,7 +52,7 @@
     cursor: pointer;
 }
 
-#questions {
+#answer-options {
     text-align: center;
     padding: 40px 125px;
     height: 400px;
@@ -62,8 +62,12 @@
     align-items: flex-start;
 }
 
+#questions {
+    text-align: left;
+}
+
 #questions h3 {
     font-size: 28px;
     font-weight: bold;
-    padding: 10px;
+    padding: 40px 125px 0 125px;
 }
