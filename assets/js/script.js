@@ -33,6 +33,9 @@ var questions = [
     }
 ];
 
+// high scores array for local storage usage
+var highScores = [];
+
 // Select questions section element
 var questionsEL = document.getElementById("questions");
 // Select answers section element
@@ -45,6 +48,10 @@ var endGameEl = document.getElementById("end-game");
 var startQuizEl = document.querySelector(".start-quiz");
 // Select Timer element
 var timerEl = document.querySelector(".time-counter");
+// Select submit button element
+var submitBtnEl = document.getElementById("submit");
+// Select initials text box element
+var initialsEl = document.getElementById("initials");
 // EndGame tracker
 var endGame = false;
 
@@ -164,3 +171,23 @@ var checkAnswer = function() {
         }, 1000);
     }
 };
+
+// function to store data on local storage
+function storeGameHighScore() {
+    theQuizGame.theInitials = initialsEl.value.trim();
+    console.log(theQuizGame.theInitials);
+
+    if (theQuizGame.theInitials == "") {
+        theQuizGame.theInitials = "AAA"
+    }    
+
+    var newScore = {
+        score: theQuizGame.theTimer,
+        initials: theQuizGame.theInitials
+    }
+
+    highScores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highScores));
+}
+
+submitBtnEl.onclick = storeGameHighScore;
