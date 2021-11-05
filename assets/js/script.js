@@ -3,7 +3,8 @@
 var theQuizGame = {
     theTimer: 100,
     theScore: 0,
-    theQuestionId: 0
+    theQuestionId: 0,
+    theInitials: ""
 };
 
 // quiz questions array
