@@ -97,3 +97,41 @@
 #high-scores-ol {
     padding: 20px 40px;
 }
+
+/* optimize for small screen */
+@media screen and (max-width: 768px) {
+    #main-page, #questions, #end-game, #high-scores {
+        padding: 40px;
+    }
+    #questions h3 {
+        padding: 0;
+    }
+    #answer-options {
+        padding: 20px 0;
+        height: 260px;
+    }
+    #end-game {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 400px;
+    }
+
+    .end-game-btn {
+        padding: 20px;
+    }
+
+    #submit {
+        padding: 20px;
+    }
+    .btn-default {
+        width: 100%;
+        padding: 20px auto 20px auto;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 120px;
+    }
+}
