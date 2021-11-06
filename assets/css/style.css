@@ -87,3 +87,13 @@
     font-style: italic;
     padding-left: 125px;
 }
+
+#high-scores h2 {
+    font-size: 28px;
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+#high-scores-ol {
+    padding: 20px;
+}
