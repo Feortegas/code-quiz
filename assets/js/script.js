@@ -216,11 +216,14 @@ var loadHighScores = function() {
     
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
     
-    console.log(highscores);
-    
     if (!highscores) {
         return false;
     }
+
+    // sort scores in ascending order
+    highscores.sort(function(a, b) {
+        return b.score - a.score;
+      });
 
     // clear li elements before loading from local storage
     highScoreOLEl.innerHTML = "";
@@ -232,6 +235,11 @@ var loadHighScores = function() {
         highScoreLiEl.textContent = highscores[i].score + " -- " + highscores[i].initials;
         highScoreOLEl.appendChild(highScoreLiEl);
     }
+};
+
+// order list of high scores per score
+var orderHighScoreList = function() {
+
 };
 
 var clearHighScores = function() {
