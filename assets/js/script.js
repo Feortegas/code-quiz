@@ -15,7 +15,7 @@ var questions = [
     },
 
     {
-        question: "William Wallace's final word is _____?",
+        question: "In Braveheart, what were William Wallace's last words?",
         options: ["Revenge","Freedom","oh boy!","Hakunamatata"],
         rightAnswer: "Freedom"
     },
@@ -105,7 +105,7 @@ var countdown = function() {
     var timeInterval = setInterval(function () {
         if (endGame) {
             clearInterval(timeInterval);
-            return;
+            hideQuestionsContent();
         }
         else if (theQuizGame.theTimer > 0) {
             timerEl.textContent = theQuizGame.theTimer;
@@ -114,7 +114,7 @@ var countdown = function() {
         else {
             // timerEl.textContent = 0;
             clearInterval(timeInterval);
-            return;
+            hideQuestionsContent();
         }
     }, 1000);
 };
