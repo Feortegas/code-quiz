@@ -248,10 +248,7 @@ var clearHighScores = function() {
 };
 
 var viewMainPage = function() {
-    highScoresEl.setAttribute("class", "hide-content");
-    mainContentEl.removeAttribute("class");
-    endGame = false;
-    theQuizGame.theTimer = 40;
+    window.location.reload();
 };
 
 submitBtnEl.onclick = storeGameHighScore;
