@@ -164,6 +164,8 @@ var checkAnswer = function() {
     userMessageEl.removeAttribute("class");
     userMessageEl.textContent = "";
 
+    // compare answers and give it some style
+    // green for correct answer and red for wrong
     if (this.textContent == questions[theQuizGame.theQuestionId].rightAnswer) {
         theQuizGame.theQuestionId++;
         userMessageEl.textContent = "Answer is Correct!"
@@ -190,10 +192,14 @@ function storeGameHighScore() {
     
     theQuizGame.theInitials = initialsEl.value.trim();
     
+    // make sure that initials is not "". Fill it with AAA in case user doesn't input the initials.
     if (theQuizGame.theInitials == "") {
         theQuizGame.theInitials = "AAA"
     }    
 
+    // load all the data from the local storage or set the array as empty.
+    // it's important to load the local storage date before the array.push command in order to add more data
+    // to the end of the array
     var highscores = JSON.parse(window.localStorage.getItem("highscores")) || [];
 
     var newScore = {
