@@ -1,10 +1,15 @@
-# code-quiz
+# code-quiz-classic-movies
 
 Web APIs Challenge: Code Quiz
 
 ## Live website
 
 https://feortegas.github.io/code-quiz-classic-movies/
+
+## Technology
+    HTML
+    CSS
+    JavaScript
 
 ## User Story
 
